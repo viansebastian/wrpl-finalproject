@@ -1,0 +1,187 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 40px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* temporary theme because my eyes are burning */
+  /* background-color: rgb(26, 26, 26); 
+  color: white; */
+}
+
+.App-header {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+#comp-img {
+  width: 250px;
+}
+
+div.navbar {
+  background-color: rgb(11, 11, 11);
+  color: white;
+  font-size: 30px;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  justify-content: space-between;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+a {color:rgb(0, 0, 0)}
+
+.links {
+  text-align: center
+}
+
+.loginRegisterField {
+  text-align: center;
+  margin-top: 30px;
+  padding: 5px;
+  width: 50%;
+  margin: auto;
+}
+
+.pwChecklist {
+  text-align: left;
+}
+
+.productCard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.productCardBox {
+  width: 400px;
+  height: 255px;
+}
+
+.noMargin {
+  margin: 0px
+}
+.productCardTable {
+  height: 100%;
+}
+
+.smallImage {
+  /* height: 100px; */
+  width: 100%;
+  max-height: auto;
+}
+
+.logoImage {
+  height: 25px;
+  margin-top: 13px;
+}
+
+.hr-text {
+  border: 0;
+  line-height: 1em;
+  position: relative;
+  text-align: center;
+  height: 1.5em;
+  font-size: 25px;
+  margin: 30px 15px;
+}
+
+.hr-text::before {
+    content: "";
+    background: linear-gradient(to right, transparent, rgb(0, 0, 0), transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+}
+
+.hr-text::after {
+    content: attr(data-content);
+    position: relative;
+    padding: 0 7px;
+    line-height: 1.5em;
+    color: rgb(0, 0, 0);
+    background-color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel {
+  width: 100%;
+  /* border: 5px red solid; */
+  box-shadow: 0px 0px 15px black;
+}
+
+/* .slideDiv {
+  padding: 0px;
+} */
+/* Jack commented out below on 11/26 because the styles were not used due to classname being used rather than className in homepage.jsx, which resulted in errors in console*/
+/* .carouselcontainer {
+  display: flex;
+  justify-content: center;
+} */
+
+.carouselText {
+  position:absolute;
+  z-index: 3;
+  color: white;
+  text-shadow: black 0px 0px 20px;
+  bottom: 0;
+  margin-left: 5px;
+  font-size: 50px;
+  -webkit-text-stroke: 1px black;
+}
+
+.carouselimg {
+  object-fit: cover;
+  position: relative;
+  /* object-position: 0 0; */
+  width: 100%;
+  border: 10px, red;
+}
+
+@media screen and (min-width: 1000px) {
+  .carouselimg {
+    height: 500px;
+  }
+}
+
+.homeCard {
+  text-shadow: rgb(255, 0, 0) 1px 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(0, 0, 0);
+}
+
+.cartModal {
+  margin-top: 60px;
+  margin-left: 35%;
+}
+
+
+
+
+/* Below targets Dashboard.jsx div that wraps around the data grid itself, but doesn't include the add user/games/etc. button 
+To edit the width of each datagrid column, go to the relevant datagrid component and change the width on each column that you want to change within the columns variable 
+
+div.css-204u17-MuiDataGrid-main {
+  margin: 0 auto;
+} 
+
+*/
+
+/* Below targets Dashboard.jsx div that wraps around the full data grid, grid and add record button included
+
+div.css-1d9w42x-MuiDataGrid-root {
+  justify-content: center;
+  align-items: center;
+} 
+
+*/
