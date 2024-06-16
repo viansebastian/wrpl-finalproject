@@ -85,6 +85,7 @@ export const CrudGridUsers = () => {
     const row = rows.find((row) => row.id === id);
     if (row && row.name && row.email && row.password && row.isadmin !== "") {
       try {
+        console.log('user update called!!')
         const response = await axios.post("http://localhost:3000/api/users/register", {
           name: row.name,
           email: row.email,

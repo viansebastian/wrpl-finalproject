@@ -538,13 +538,13 @@ const seedGames = () => {
     productName: "Fortnite",
     genre: "Battle Royale",
     delivery: "Digital Download",
-    price: 0.0,
+    price: 59.99,
     stock: 500,
     condition: "New",
     description: "Join the battle royale and build to outlast your opponents.",
     publisher: "Epic Games",
     productImage:
-      "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000010192/2e8af138c432e81ce6b1fceb510b39b0544081417c6fe403465a99603a7b7a4d",
+      "https://static.standard.co.uk/2024/03/08/8/58/fortnite-myths-and-mortals-battle-pass-1920x1080-56228b70b9b3.jpg?width=1200&auto=webp&quality=75",
     playerRange: "Multiplayer",
     esrb: "T",
     featured: false,
@@ -823,7 +823,17 @@ const createTables = async () => {
         hardware (id)
         );
 
-        `);
+      CREATE TABLE admin_transact (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255),
+      price DECIMAL,
+      stock INT,
+      type VARCHAR(50),
+      quantity INT,
+      subtotal DECIMAL
+      );
+
+    `);
   } catch (err) {
     throw err;
   }
@@ -986,6 +996,69 @@ const insertCartHardware = async () => {
   }
 };
 
+const adminTransact_games = async () => {
+  try {
+    console.log('inserting games transact data');
+    await db.query(
+      `INSERT INTO admin_transact (name, price, stock, type, quantity, subtotal)
+        SELECT 
+            g.name,
+            g.price,
+            g.stock,
+            'games' AS type,
+            scg.quantity,
+            g.price * scg.quantity AS subtotal
+        FROM games g
+        JOIN shopping_cart_games scg ON g.id = scg.game_id;`
+    )
+    console.log('games transact inserted')
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
+const adminTransact_hardware = async () => {
+  try {
+    console.log('inserting games transact data');
+    await db.query(
+      `INSERT INTO admin_transact (name, price, stock, type, quantity, subtotal)
+        SELECT 
+            h.name,
+            h.price,
+            h.stock,
+            'hardware' AS type,
+            sch.quantity,
+            h.price * sch.quantity AS subtotal
+        FROM hardware h
+        JOIN shopping_cart_hardware sch ON h.id = sch.hardware_id;`
+    )
+    console.log('hardware transact inserted')
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
+const adminTransact_merch = async () => {
+  try {
+    console.log('inserting games transact data');
+    await db.query(
+      `INSERT INTO admin_transact (name, price, stock, type, quantity, subtotal)
+        SELECT 
+            m.name,
+            m.price,
+            m.stock,
+            'merch' AS type,
+            scm.quantity,
+            m.price * scm.quantity AS subtotal
+        FROM merch m
+        JOIN shopping_cart_merch scm ON m.id = scm.merch_id;`
+    )
+    console.log('merch transact inserted')
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
 const seedDatabase = async () => {
   try {
     db.connect();
@@ -1005,6 +1078,9 @@ const seedDatabase = async () => {
     await insertCartGames();
     await insertCartMerch();
     await insertCartHardware();
+    await adminTransact_games();
+    await adminTransact_hardware();
+    await adminTransact_merch();
   } catch (err) {
     throw err;
   } finally {
