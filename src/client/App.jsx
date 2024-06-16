@@ -11,17 +11,17 @@ const theme = createTheme({
   palette: {
     background: {
       light: "#fff",
-      dark: "#414141",
+      dark: "#000000",
     },
     text: {
-      light: "#000000",
-      dark: "#fff",
+      light: "#fff",
+      dark: "#000000",
     },
     primary: {
-      main: red[500],
+      main: "#FFD1DC", // Pink primary color
     },
     secondary: {
-      main: blue[500],
+      main: "#3F51B5", // Blue secondary color (just for contrast)
     },
   },
 });
@@ -51,6 +51,22 @@ function App() {
     }
     getStorage(storageToken, userStorage, localCart);
   }, [storageToken]);
+
+  // const [mode, setMode] = React.useState<PaletteMode>('light');
+  // const colorMode = React.useMemo(
+  //   () => ({
+  //     // The dark mode switch would invoke this method
+  //     toggleColorMode: () => {
+  //       setMode(() =>
+  //         prevMode === 'light' ? 'dark' : 'light',
+  //       );
+  //     },
+  //   }),
+  //   [],
+  // );
+
+  // // Update the theme only if the mode changes
+  // const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
   return (
     // <ColorModeContext.Provider value={colorMode}>

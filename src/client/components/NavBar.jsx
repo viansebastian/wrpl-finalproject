@@ -23,7 +23,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { ShoppingCart } from "@mui/icons-material";
 import { Badge } from "@mui/material";
-import gamenebulalogo from "../../Assets/Logo/gamenebulalogo.png";
+import biglogo from "../../Assets/Logo/biglogo.png";
 import { Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -136,21 +136,21 @@ const NavBar = ({ token, setToken, admin, setAdmin, user, setUser }) => {
           </IconButton>
         </Link>
         <Link to="/">
-          <img src={gamenebulalogo} className="logoImage" />
+          <img src={biglogo} className="logoImage" />
         </Link>
 
         <FormControl
           sx={{
             m: 1,
             width: "1",
-            border: "1px solid red",
+            border: "1px solid pink",
             borderRadius: "5px",
-            boxShadow: "0px 0px 15px red",
+            boxShadow: "0px 0px 15px pink",
           }}
         >
           <TextField
             InputLabelProps={{
-              sx: { color: "red" },
+              sx: { color: "pink" },
             }}
             placeholder="Search Products"
             onChange={(e) => setSearchParams(e.target.value.toLowerCase())}
@@ -176,7 +176,7 @@ const NavBar = ({ token, setToken, admin, setAdmin, user, setUser }) => {
         )}
 
         {/* Logged in links */}
-        {token && admin && (
+        {token && (
           <>
             <Link to="/dashboard">
               <IconButton aria-label="Dashboard" color="primary">
@@ -212,7 +212,7 @@ const NavBar = ({ token, setToken, admin, setAdmin, user, setUser }) => {
             height: 500,
             bgcolor: "background.paper",
             border: "2px solid #000",
-            boxShadow: `24`,
+            boxShadow: `20`,
           }}
           open={cartModal}
           onClose={handleCloseCart}

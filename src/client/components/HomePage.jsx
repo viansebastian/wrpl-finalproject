@@ -12,19 +12,22 @@ import { Link } from 'react-router-dom';
 
 const images = [
     {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/3/37/Person_playing_videogames_%2852001476290%29.jpg',
+      url: 'src/Assets/Games/jeshoots-com-250229-unsplash-1060x540.jpg',
       title: 'Games',
       width: '30%',
+      align: 'center',
     },
     {
-      url: 'https://images.pexels.com/photos/17784701/pexels-photo-17784701.jpeg?cs=srgb&dl=pexels-pramod-tiwari-17784701.jpg&fm=jpg',
+      url: 'src/Assets/Hardware/pink.jpeg',
       title: 'Hardware',
-      width: '40%',
+      width: '30%',
+      align: 'center',
     },
     {
-      url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Fortnite_merch_at_E3_2018_2.jpg',
+      url: 'src/Assets/Merch/Crazy_Racoon/crazyraccoon-store-streamer-festival-2022-02.webp',
       title: 'Merch',
       width: '30%',
+      align: 'center',
     },
   ];
   
@@ -32,7 +35,7 @@ const images = [
     position: 'relative',
     height: 200,
     [theme.breakpoints.down('sm')]: {
-      width: '100% !important', // Overrides inline-style
+      width: '100% !important', 
       height: 100,
     },
     '&:hover, &.Mui-focusVisible': {
@@ -96,12 +99,12 @@ export const HomePage = () => {
 
     const Carousel = () => {
         const settings = {
-            dots: true, 
+            /*dots: true, */
            infinite: true,
            arrows: true,
            autoplay: true,
-           speed: 400,
-           slidesToShow: 1,
+           speed: 500,
+           slidesToShow: 2,
            slidesToScroll: 1,
 };
 
@@ -110,23 +113,38 @@ return (
     <div className = "carousel">
    <Slider {...settings}>
        <div className="slideDiv">
-            <h1 className='carouselText'>Call of Duty</h1>
-            <img className = "carouselimg" src="https://i.ytimg.com/vi/7ZXTMNHpjXA/maxresdefault.jpg" alt="Call of Duty Gameplay" />
+            <h2 className='carouselText'>Genshin Impact</h2>
+            <img className = "carouselimg" src="src/Assets/Games/Genshin Impact/genshin impact.jpg" alt="Genshin Impact Gameplay" />
         </div>
 
         <div className="slideDiv">
-        <h1 className='carouselText'>FIFA 23</h1>
-           <img className = "carouselimg" src="https://assetsio.reedpopcdn.com/fifa-23-again.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp" alt="FIFA 23 Gameplay" />
+        <h2 className='carouselText'>Valorant</h2>
+           <img className = "carouselimg" src="src/Assets/Games/Valorant/valorant.jpeg" alt="Valorant Gameplay" />
        </div>
 
         <div className="slideDiv">
-        <h1 className='carouselText'>Skyrim</h1>
-         <img className = "carouselimg" src="https://i.ytimg.com/vi/kQ6tCc5dFYc/maxresdefault.jpg" alt="Skyrim, The Elder Scrolls Gameplay" />
+        <h2 className='carouselText'>Omori</h2>
+         <img className = "carouselimg" src="src/Assets/Games/Omori/omori2.jpeg" alt="Omori Gameplay" />
         </div>
 
         <div className="slideDiv">
         <h1 className='carouselText'>The Legend of Zelda</h1>
-         <img className = "carouselimg" src="https://cdn.vox-cdn.com/thumbor/0PrsfU_7JARyXrcxuRHM3wdHp3E=/0x0:1024x576/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/53525779/zeldabreath.0.jpg" />
+         <img className = "carouselimg" src="src/Assets/Games/The_Legend_of_Zelda/zelda.webp" />
+        </div>
+
+        <div className="slideDiv">
+        <h1 className='carouselText'>The Exit 8</h1>
+         <img className = "carouselimg" src="src/Assets/Games/The_Exit_8/exit 8.jpeg" />
+        </div>
+
+        <div className="slideDiv">
+        <h1 className='carouselText'>Super Bunny Man</h1>
+         <img className = "carouselimg" src="src/Assets/Games/Super_bunny_Man/superbunnyman.jpeg" />
+        </div>
+
+        <div className="slideDiv">
+        <h1 className='carouselText'>Unpacking</h1>
+         <img className = "carouselimg" src="src/Assets/Games/Unpacking/Screenshot02.png" />
         </div>
         
    </Slider>
@@ -139,8 +157,8 @@ return (
         <>
         <div>
             <div className="homeCard">
-                <h1>Welcome to GAME NEBULA</h1>
-                <h2>Your #1 stop for all GAMES, HARDWARE, and MORE!!</h2>
+                <h1>Welcome to 2434 Games</h1>
+                <h2>Your ultimate destination for GAMES, HARDWARE, and MERCH! #1 choice for all your gaming needs!</h2>
             </div>
 
             <div className= "carouselcontainer">
@@ -148,7 +166,7 @@ return (
             </div>
 
             <Link to="/store">
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '111%' }}>
             {images.map((image) => (
                 <ImageButton
                 focusRipple
@@ -162,13 +180,13 @@ return (
                 <Image>
                     <Typography
                     component="span"
-                    variant="subtitle1"
+                    variant="subtitle2"
                     color="inherit"
                     sx={{
                         position: 'relative',
                         p: 4,
                         pt: 2,
-                        pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                        pb: (theme) => `calc(${theme.spacing(1)} + 5px)`, /*ini tulisan2 yg box putih di bawah*/
                     }}
                     >
                     {image.title}

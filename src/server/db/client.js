@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { Client } = require("pg");
 const connectionString =
-  process.env.DATABASE_URL || 'postgres://localhost:5432/wrpl_ecommerce';
+  process.env.DATABASE_URL || 'postgres://localhost:5432/databasewrpl';
 
 
 const db = new Client({
